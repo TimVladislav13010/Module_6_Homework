@@ -4,31 +4,38 @@ import sys
 
 
 def sorter(path=sys.argv[1]):
+
+    lists_music = []
+    lists_archive = []
+    lists_video = []
+    lists_documents = []
+    lists_photo = []
+
     for i in os.listdir(path): #iterator po papkah
-        # print(i)
+        print(i)
         if i.endswith(".jpg") \
                 or i.endswith(".jpeg") \
                 or i.endswith(".png") \
                 or i.endswith(".svg"):
-            print(f"this is foto fille {i}")
-        if i.endswith(".avi") \
+            print(f"this is photo fille {i}")
+        elif i.endswith(".avi") \
                 or i.endswith(".mp4") \
                 or i.endswith(".mov") \
                 or i.endswith(".mkv"):
             print(f"this is video fille {i}")
-        if i.endswith(".doc")\
+        elif i.endswith(".doc")\
                 or i.endswith(".docx") \
                 or i.endswith(".txt") \
                 or i.endswith(".pdf") \
                 or i.endswith(".xlsx") \
                 or i.endswith(".pptx"):
             print(f"this is documents fille {i}")
-        if i.endswith(".mp3") \
+        elif i.endswith(".mp3") \
                 or i.endswith(".ogg") \
                 or i.endswith(".wav") \
                 or i.endswith(".amr"):
             print(f"this is musiс fille {i}")
-        if i.endswith(".zip") \
+        elif i.endswith(".zip") \
                 or i.endswith(".gz") \
                 or i.endswith(".tar"):
             print(f"this is archives fille {i}")
