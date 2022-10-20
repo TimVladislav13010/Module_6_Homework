@@ -54,6 +54,8 @@ lists_video = []
 lists_documents = []
 lists_photo = []
 lists_uknown = []
+file_sufix_known = {}
+file_sufix_uknown = {}
 
 
 a = sorter()
