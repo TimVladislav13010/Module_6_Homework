@@ -5,7 +5,7 @@ import sys
 
 def sorter(path=sys.argv[1]):
     for i in os.listdir(path): #iterator po papkah
-        print(i)
+        # print(i)
         if i.endswith(".jpg") \
                 or i.endswith(".jpeg") \
                 or i.endswith(".png") \
@@ -32,7 +32,7 @@ def sorter(path=sys.argv[1]):
                 or i.endswith(".gz") \
                 or i.endswith(".tar"):
             print(f"this is archives fille {i}")
-        elif:
+        elif os.path.isfile(os.path.join(path, i)):
             print(f"this is uknown fille {i}")
         if os.path.isdir(os.path.join(path, i)): #yakscho papka to zahodumo v nei
             if i == "audio" or i =="video" or i == "archives" or i == "documents" or i =="images":
