@@ -1,39 +1,92 @@
 from pathlib import Path
-import re
 import sys
 
 
-def sorter(path=sys.argv[1]):
+#Списки файлів
+
+
+text_file = []
+audio_file = []
+video_file = []
+photo_file = []
+archives_file = []
+others_file = []
+set_suffix_known = set()
+set_suffix_unknown = set()
+
+
+def sorter(path=sys.argv[1]): # функція сортування файлів
     path = Path(path)
-    for i in path.iterdir():
+
+    for i in path.iterdir(): # ітерація по фалйах та папках за вказаним шляхом
         
-        if i.is_dir():
-            print(f"This is dir: {i}")
+        if i.is_dir(): # якщо папка то заходимо в неї рекурсивно
             sorter(path / i)
-        if i.is_file():
-            print(f"This is file: {i}")
+
+        if i.is_file(): # якщо файл перевіряємо розширення та додаємо інформацію до списків
             path = path / i
             format_files = path.suffix
-            print(format_files)
-            if format_files == ".txt":
-                print(f"This is text file {format_files}")
-                file_name = path.name
-                append_file_lists(format_files, file_name)
-                
 
-                
-def append_file_lists(format_files, file_name):
-    text_file = []
+            if format_files == ".txt" \
+                    or format_files == ".doc" \
+                    or format_files == ".docx" \
+                    or format_files == ".pdf" \
+                    or format_files == ".pptx" \
+                    or format_files == ".xlsx": # перевірка текстових файлів
 
-    if format_files == ".txt":
-        text_file.append(file_name)
+                text_file.append(path.name)
+                set_suffix_known.add(path.suffix)
 
-    
-    return text_file
+            elif format_files == ".jpeg" \
+                    or format_files == ".jpg" \
+                    or format_files == ".png" \
+                    or format_files == ".svg": # перевірка файлів зображень
+
+                photo_file.append(path.name)
+                set_suffix_known.add(path.suffix)
+
+            elif format_files == ".avi" \
+                    or format_files == ".mp4" \
+                    or format_files == ".mov" \
+                    or format_files == ".mkv": # перевірка файлів відео
+
+                video_file.append(path.name)
+                set_suffix_known.add(path.suffix)
+
+            elif format_files == ".mp3" \
+                    or format_files == ".ogg" \
+                    or format_files == ".wav" \
+                    or format_files == ".amr": # перевірка аудіо файлів
+
+                audio_file.append(path.name)
+                set_suffix_known.add(path.suffix)
+
+            elif format_files == ".zip" \
+                    or format_files == ".gz" \
+                    or format_files == ".tar": # перевірка архівів
+
+                archives_file.append(path.name)
+                set_suffix_known.add(path.suffix)
+
+            elif format_files: # перевірка інших нам невідомих файлів
+
+                others_file.append(path.name)
+                set_suffix_unknown.add(path.suffix)
+
+    return None
+
 
 if __name__ == "__main__":
-
     pass
 
 
 sorter()
+
+print(f"Текстові файли: {text_file}")
+print(f"Файли архівів: {archives_file}")
+print(f"Аудіо файли: {audio_file}")
+print(f"Відео файли: {video_file}")
+print(f"Файли зображень: {photo_file}")
+print(f"Невідомі файли: {others_file}")
+print(f"Усі відомі розширення: {set_suffix_known}")
+print(f"Усі невідомі розширення: {set_suffix_unknown}")
