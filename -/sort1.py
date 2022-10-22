@@ -19,10 +19,14 @@ set_suffix_unknown = set()
 def sorter(path=sys.argv[1]): # функція сортування файлів
     path = Path(path)
 
-    for i in path.iterdir(): # ітерація по фалйах та папках за вказаним шляхом
-        path_name = normalize(path.name) # нове ім’я
+    for i in path.iterdir(): # ітерація по файлах та папках за вказаним шляхом
+        new_path_name = normalize(path.stem) # нове ім’я
+        new_path_name = new_path_name + path.suffix
+        new_path_name = Path(new_path_name)
+        new_path = path.joinpath(i)
+        new_path.rename(new_path_name)
 
-        if i.is_dir(): # якщо папка то заходимо в неї рекурсивно
+        if i.is_dir(): # якщо папка то заходимо в неї рекурсивно викликаємо функцію
             sorter(path / i)
 
         if i.is_file(): # якщо файл перевіряємо розширення та додаємо інформацію до списків
