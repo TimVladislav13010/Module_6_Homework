@@ -1,4 +1,5 @@
 from pathlib import Path
+from normalize import normalize
 import sys
 
 
@@ -19,7 +20,8 @@ def sorter(path=sys.argv[1]): # функція сортування файлів
     path = Path(path)
 
     for i in path.iterdir(): # ітерація по фалйах та папках за вказаним шляхом
-        
+        path_name = normalize(path.name) # нове ім’я
+
         if i.is_dir(): # якщо папка то заходимо в неї рекурсивно
             sorter(path / i)
 
@@ -75,6 +77,8 @@ def sorter(path=sys.argv[1]): # функція сортування файлів
 
     return None
 
+
+# def move_file()
 
 if __name__ == "__main__":
     pass
