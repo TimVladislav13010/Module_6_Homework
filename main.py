@@ -104,6 +104,6 @@ if __name__ == '__main__':
         folder_for_scan = Path(sys.argv[1])
         print(f'Start in folder {folder_for_scan.resolve()}')
         main(folder_for_scan.resolve())
-        print(parser.result)
+
 
 # TODO: запускаємо:  python3 main.py `назва_папки_для_сортування`

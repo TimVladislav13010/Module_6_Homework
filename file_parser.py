@@ -79,17 +79,17 @@ def scan(folder: Path) -> None:
         ext = get_extension(item.name)  # взяти розширення
         fullname = folder / item.name  # взяти повний шлях до файлу (folder / item.name)
         if not ext:  # якщо файл не має розширення додати до невідомих
-            MY_OTHER.append(fullname)
+            MY_OTHER.append(fullname) # fullname
         else:
             try:
                 # взяти список куди покласти повний шлях до файлу
                 container = REGISTER_EXTENSIONS[ext]
                 EXTENSIONS.add(ext)
-                container.append(fullname)
+                container.append(fullname) #fullname
             except KeyError:
                 # Якщо ми не реєстрували розширення у REGISTER_EXTENSIONS, то додати до іншого
                 UNKNOWN.add(ext)
-                MY_OTHER.append(fullname)
+                MY_OTHER.append(fullname) #fullname
 
 
 if __name__ == '__main__':
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     # print(f'Others file: {MY_OTHER}')
     #
     # print(f"Folders: {FOLDERS[::-1]}")
-    #
+
 
     result = f'''Images jpeg: {JPEG_IMAGES}'
         \n\nImages jpg: {JPG_IMAGES}
@@ -160,3 +160,5 @@ if __name__ == '__main__':
         \n\nOthers file: {MY_OTHER}
         \n\nFolders: {FOLDERS[::-1]}'''
     print(result)
+
+# TODO: запускаємо:  python3 file_parser.py `назва_папки_для_сортування`
