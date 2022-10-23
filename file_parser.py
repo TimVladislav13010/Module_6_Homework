@@ -5,9 +5,29 @@ JPEG_IMAGES = []
 JPG_IMAGES = []
 PNG_IMAGES = []
 SVG_IMAGES = []
+
 MP3_AUDIO = []
+OGG_AUDIO = []
+WAV_AUDIO = []
+AMR_AUDIO = []
+
+AVI_VIDEO = []
+MP4_VIDEO = []
+MOV_VIDEO = []
+MKV_VIDEO = []
+
+DOC_DOCUMENTS = []
+DOCX_DOCUMENTS = []
+TXT_DOCUMENTS = []
+PDF_DOCUMENTS = []
+XLSX_DOCUMENTS = []
+PPTX_DOCUMENTS = []
+
 MY_OTHER = []
-ARCHIVES = []
+
+ZIP_ARCHIVES = []
+GZ_ARCHIVES = []
+TAR_ARCHIVES = []
 
 REGISTER_EXTENSIONS = {
     'JPEG': JPEG_IMAGES,
@@ -15,7 +35,22 @@ REGISTER_EXTENSIONS = {
     'JPG': JPG_IMAGES,
     'SVG': SVG_IMAGES,
     'MP3': MP3_AUDIO,
-    'ZIP': ARCHIVES
+    'OGG': OGG_AUDIO,
+    'WAV': WAV_AUDIO,
+    'AMR': AMR_AUDIO,
+    'AVI': AVI_VIDEO,
+    'MP4': MP4_VIDEO,
+    'MOV': MOV_VIDEO,
+    'MKV': MKV_VIDEO,
+    'DOC': DOC_DOCUMENTS,
+    'DOCX': DOCX_DOCUMENTS,
+    'TXT': TXT_DOCUMENTS,
+    'PDF': PDF_DOCUMENTS,
+    'XLSX': XLSX_DOCUMENTS,
+    'PPTX': PPTX_DOCUMENTS,
+    'ZIP': ZIP_ARCHIVES,
+    'GZ': GZ_ARCHIVES,
+    'TAR': TAR_ARCHIVES
 }
 
 FOLDERS = []
@@ -66,10 +101,33 @@ if __name__ == '__main__':
     print(f'Images jpeg: {JPEG_IMAGES}')
     print(f'Images jpg: {JPG_IMAGES}')
     print(f'Images svg: {SVG_IMAGES}')
+    print(f'Images png: {PNG_IMAGES}')
+
     print(f'Audio mp3: {MP3_AUDIO}')
-    print(f'Archives: {ARCHIVES}')
+    print(f'Audio ogg: {OGG_AUDIO}')
+    print(f'Audio wav: {WAV_AUDIO}')
+    print(f'Audio amr: {AMR_AUDIO}')
+
+    print(f'Video avi: {AVI_VIDEO}')
+    print(f'Video mp4: {MP4_VIDEO}')
+    print(f'Video mov: {MOV_VIDEO}')
+    print(f'Video mkv: {MKV_VIDEO}')
+
+    print(f'Dokument doc: {DOC_DOCUMENTS}')
+    print(f'Dokument docx: {DOCX_DOCUMENTS}')
+    print(f'Dokument txt: {TXT_DOCUMENTS}')
+    print(f'Dokument pdf: {PDF_DOCUMENTS}')
+    print(f'Dokument xlsx: {XLSX_DOCUMENTS}')
+    print(f'Dokument pptx: {PPTX_DOCUMENTS}')
+
+    print(f'Archives zip: {ZIP_ARCHIVES}')
+    print(f'Archives gz: {GZ_ARCHIVES}')
+    print(f'Archives tar: {TAR_ARCHIVES}')
 
     print(f'Types of files in folder: {EXTENSIONS}')
     print(f'Unknown files of types: {UNKNOWN}')
 
+    print(f'Others file: {MY_OTHER}')
+
     print(FOLDERS[::-1])
+
