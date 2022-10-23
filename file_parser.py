@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 
+
 JPEG_IMAGES = []
 JPG_IMAGES = []
 PNG_IMAGES = []
@@ -111,7 +112,6 @@ EXTENSIONS = set()
 UNKNOWN = set()
 
 
-
 def get_extension(filename: str) -> str:
     # перетворюємо розширення файлу на назву папки .jpg -> JPG
     return Path(filename).suffix[1:].upper()
@@ -153,9 +153,7 @@ def scan(folder: Path) -> None:
 if __name__ == '__main__':
 
     folder_for_scan = sys.argv[1]
-
     print(f'Start in folder {folder_for_scan}')
-
     scan(Path(folder_for_scan))
 
     # print(f'Images jpeg: {JPEG_IMAGES}')
@@ -190,7 +188,6 @@ if __name__ == '__main__':
     # print(f'Others file: {MY_OTHER}')
     #
     # print(f"Folders: {FOLDERS[::-1]}")
-
 
     result = f'''Images jpeg: {[JPEG_IMAGES_NAME]}
         \n\nImages jpg: {JPG_IMAGES_NAME}
