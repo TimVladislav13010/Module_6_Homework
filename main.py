@@ -5,6 +5,7 @@ import file_parser as parser
 from normalize import normalize
 import time
 
+
 def handle_media(filename: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
     filename.replace(target_folder / (normalize(filename.stem) + '_' + str(time.time()) + filename.suffix))
@@ -103,6 +104,6 @@ if __name__ == '__main__':
         folder_for_scan = Path(sys.argv[1])
         print(f'Start in folder {folder_for_scan.resolve()}')
         main(folder_for_scan.resolve())
-
+        print(parser.result)
 
 # TODO: запускаємо:  python3 main.py `назва_папки_для_сортування`
