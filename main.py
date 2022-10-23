@@ -3,16 +3,16 @@ import shutil
 import sys
 import file_parser as parser
 from normalize import normalize
-
+import time
 
 def handle_media(filename: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
-    filename.replace(target_folder / (normalize(filename.stem) + filename.suffix))
+    filename.replace(target_folder / (normalize(filename.stem) + '_' + str(time.time()) + filename.suffix))
 
 
 def handle_other(filename: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
-    filename.replace(target_folder / (normalize(filename.stem) + filename.suffix))
+    filename.replace(target_folder / (normalize(filename.stem) + '_' + str(time.time()) + filename.suffix))
 
 
 def handle_archive(filename: Path, target_folder: Path):
@@ -20,7 +20,7 @@ def handle_archive(filename: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
     # Створюємо папку куди розпакуємо архів
     # Беремо суфікс у файла і удаляємо replace(filename.suffix, '')
-    folder_for_file = target_folder / normalize(filename.name.replace(filename.suffix, ''))
+    folder_for_file = target_folder / (normalize(filename.name.replace(filename.suffix, '') + '_' + str(time.time())))
 
     # Створюємо папку для архіву з іменем файлу
     folder_for_file.mkdir(exist_ok=True, parents=True)

@@ -77,7 +77,7 @@ def scan(folder: Path) -> None:
 
         # Робота з файлом
         ext = get_extension(item.name)  # взяти розширення
-        fullname = folder / item.name  # взяти повний шлях до файлу
+        fullname = folder / item.name  # взяти повний шлях до файлу (folder / item.name)
         if not ext:  # якщо файл не має розширення додати до невідомих
             MY_OTHER.append(fullname)
         else:
@@ -129,5 +129,5 @@ if __name__ == '__main__':
 
     print(f'Others file: {MY_OTHER}')
 
-    print(FOLDERS[::-1])
+    print(f"Folders: {FOLDERS[::-1]}")
 
