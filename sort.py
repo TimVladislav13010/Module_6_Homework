@@ -30,47 +30,31 @@ def sorter(path): # функція сортування файлів
             path_file = path / i
             format_files = path_file.suffix
 
-            if format_files == ".txt" \
-                    or format_files == ".doc" \
-                    or format_files == ".docx" \
-                    or format_files == ".pdf" \
-                    or format_files == ".pptx" \
-                    or format_files == ".xlsx": # перевірка текстових файлів
+            if format_files in (".txt", ".doc", ".docx", ".pdf", ".pptx", ".xlsx"):  # перевірка текстових файлів
 
                 text_file.append(path_file.name)
                 set_suffix_known.add(path_file.suffix)
                 move_file(path_file, PATH / "documents")
 
-            elif format_files == ".jpeg" \
-                    or format_files == ".jpg" \
-                    or format_files == ".png" \
-                    or format_files == ".svg": # перевірка файлів зображень
+            elif format_files in (".jpeg", ".jpg", ".png", ".svg"):  # перевірка файлів зображень
 
                 photo_file.append(path_file.name)
                 set_suffix_known.add(path_file.suffix)
                 move_file(path_file, PATH / "images")
 
-            elif format_files == ".avi" \
-                    or format_files == ".mp4" \
-                    or format_files == ".mov" \
-                    or format_files == ".mkv": # перевірка файлів відео
+            elif format_files in (".avi", ".mp4", ".mov", ".mkv"):  # перевірка файлів відео
 
                 video_file.append(path_file.name)
                 set_suffix_known.add(path_file.suffix)
                 move_file(path_file, PATH / "video")
 
-            elif format_files == ".mp3" \
-                    or format_files == ".ogg" \
-                    or format_files == ".wav" \
-                    or format_files == ".amr": # перевірка аудіо файлів
+            elif format_files in (".mp3", ".ogg", ".wav", ".amr"):  # перевірка аудіо файлів
 
                 audio_file.append(path_file.name)
                 set_suffix_known.add(path_file.suffix)
                 move_file(path_file, PATH / "audio")
 
-            elif format_files == ".zip" \
-                    or format_files == ".gz" \
-                    or format_files == ".tar": # перевірка архівів
+            elif format_files in (".zip", ".gz", ".tar"):  # перевірка архівів
 
                 archives_file.append(path_file.name)
                 set_suffix_known.add(path_file.suffix)
