@@ -84,9 +84,8 @@ def sorter(path): # функція сортування файлів
 
     for i in path.iterdir():  # ітерація по файлах та папках за вказаним шляхом
         if i.is_dir():  # якщо папка то заходимо
-            if i.name not in ("archives", "video", "audio", "documents", "images", "other"):  # якщо не папка то видаляємо
+            if i.name not in ("archives", "video", "audio", "documents", "images", "others"):  # якщо не папка то видаляємо
                 delete_folders(Path(i))  # видаляємо папку
-
     return None
 
 
@@ -118,6 +117,7 @@ def delete_folders(folder: Path):  # функція для видалення п
 
 
 if __name__ == '__main__':
+
     try:
         PATH = sys.argv[1]
     except IndexError:
@@ -127,13 +127,15 @@ if __name__ == '__main__':
         print(f'Старт в папці: {PATH.resolve()}')
         sorter(PATH.resolve())
 
+    print(f"""Текстові файли: \n\n{text_file}")
+    \n\nФайли архівів: \n\n{archives_file}
+    \n\nАудіо файли: \n\n{audio_file}
+    \n\nВідео файли: \n\n{video_file}
+    \n\nФайли зображень: \n\n{photo_file}
+    \n\nНевідомі файли: \n\n{others_file}
+    \n\nУсі відомі розширення: \n\n{set_suffix_known}
+    \n\nУсі невідомі розширення: \n\n{set_suffix_unknown}
+    \n\nУсі папки: \n\n{folders}""")
 
-    print(f"""Текстові файли: {text_file}")
-    \n\nФайли архівів: {archives_file}
-    \n\nАудіо файли: {audio_file}
-    \n\nВідео файли: {video_file}
-    \n\nФайли зображень: {photo_file}
-    \n\nНевідомі файли: {others_file}
-    \n\nУсі відомі розширення: {set_suffix_known}
-    \n\nУсі невідомі розширення: {set_suffix_unknown}
-    \n\nУсі папки: {folders}""")
+
+# TODO: запускаємо:  python3 sort.py `назва_папки_для_сортування`
