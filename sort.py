@@ -117,28 +117,15 @@ def delete_folders(folder: Path):  # функція для видалення п
         print(f'Помилка видалення папки {folder}')
 
 
-# def path_function():
-#     try:
-#         folder = sys.argv[1]
-#     except IndexError:
-#         print('Enter valid path to the folder')
-#     else:
-#         folder_for_scan = Path(folder)
-#         print(f'Start in folder {folder_for_scan.resolve()}')
-#         main(folder_for_scan.resolve())
-#
-#
-# if __name__ == '__main__':
-#     path_function()
-#
-
-if __name__ == "__main__":
-    # pass
-
-
-    PATH = sys.argv[1]
-    PATH = Path(PATH)
-    sorter(PATH)
+if __name__ == '__main__':
+    try:
+        PATH = sys.argv[1]
+    except IndexError:
+        print('Введіть валідний шлях до папки')
+    else:
+        PATH = Path(PATH)
+        print(f'Старт в папці: {PATH.resolve()}')
+        sorter(PATH.resolve())
 
 
     print(f"""Текстові файли: {text_file}")
