@@ -87,7 +87,7 @@ def move_archive(filename: Path, target_folder: Path):  # функція роз�
         shutil.unpack_archive(str(filename.resolve()),
                               str(folder_for_file.resolve()))
     except shutil.ReadError:
-        print(f'Це не архів {filename}!')
+        print(f"Це не архів {filename}!")
         folder_for_file.rmdir()
         return None
     filename.unlink()
@@ -97,7 +97,7 @@ def delete_folders(folder: Path):  # функція для видалення п
     try:
         folder.rmdir()
     except OSError:
-        print(f'Помилка видалення папки {folder}')
+        print(f"Помилка видалення папки {folder}")
 
 
 def func_path():
@@ -105,14 +105,14 @@ def func_path():
     try:
         PATH = sys.argv[1]
     except IndexError:
-        print('Введіть валідний шлях до папки')
+        print("Введіть валідний шлях до папки")
     else:
         PATH = Path(PATH)
-        print(f'Старт в папці: {PATH.resolve()}')
+        print(f"Старт в папці: {PATH.resolve()}")
         sorter(PATH.resolve())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     func_path()
 
     print(f"""Текстові файли: \n\n{text_file}")
