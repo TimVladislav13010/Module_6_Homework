@@ -100,8 +100,8 @@ def delete_folders(folder: Path):  # функція для видалення п
         print(f'Помилка видалення папки {folder}')
 
 
-if __name__ == '__main__':
-
+def func_path():
+    global PATH
     try:
         PATH = sys.argv[1]
     except IndexError:
@@ -110,6 +110,10 @@ if __name__ == '__main__':
         PATH = Path(PATH)
         print(f'Старт в папці: {PATH.resolve()}')
         sorter(PATH.resolve())
+
+
+if __name__ == '__main__':
+    func_path()
 
     print(f"""Текстові файли: \n\n{text_file}")
     \n\nФайли архівів: \n\n{archives_file}
